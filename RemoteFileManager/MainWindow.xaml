@@ -1,0 +1,51 @@
+﻿<Window x:Class="RemoteFileManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RemoteFileManager"
+        mc:Ignorable="d"
+        Title="Remote file storage"
+        WindowStartupLocation="CenterScreen"
+        Height="450" Width="800">
+    <Grid Background="{StaticResource GradientBackgournd}">
+        <Label Content="Create directory" HorizontalAlignment="Left" Margin="52,48,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="513,114,0,0" Text="{Binding Properties.ContentType,Mode=OneWay}" IsReadOnly="True" VerticalAlignment="Top" Width="214"/>
+        <Button 
+            x:Name="BtnUpload"
+            Background="Black"
+            Content="Upload" 
+            Click="BtnUpload_Click"
+            HorizontalAlignment="Left" Margin="52,371,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button
+            x:Name="BtnDownload"
+            Background="Orange"
+            Content="Download" 
+            Click="BtnDownload_Click"
+            HorizontalAlignment="Left" Margin="171,371,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button
+             x:Name="BtnDelete"
+            Background="Red"
+            Content="Delete" 
+            Click="BtnDelete_Click"
+            HorizontalAlignment="Left" Margin="282,371,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.979,0.299"/>
+        <Label Content="Content type" HorizontalAlignment="Left" Margin="409,111,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding Properties.ContentLength,Mode=OneWay}" IsReadOnly="True" Height="23" Margin="513,155,0,0" VerticalAlignment="Top" Width="214"/>
+        <Label Content="Content length"  HorizontalAlignment="Left" Margin="409,153,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="513,198,0,0" Text="{Binding Properties.CreatedOn,Mode=OneWay}" IsReadOnly="True" VerticalAlignment="Top" Width="214"/>
+        <Label Content="Date created" HorizontalAlignment="Left" Margin="409,195,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="513,240,0,0" Text="{Binding Properties.LastModified,Mode=OneWay}" IsReadOnly="True" VerticalAlignment="Top" Width="214"/>
+        <Label Content="Last modified" HorizontalAlignment="Left" Margin="409,237,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="513,279,0,0" Text="{Binding Properties.ServerEncrypted,Mode=OneWay}" IsReadOnly="True" VerticalAlignment="Top" Width="86"/>
+        <Label Content="Server encrypted" HorizontalAlignment="Left" Margin="409,279,0,0" VerticalAlignment="Top"/>
+
+        <TreeView
+            MouseDoubleClick="TwFileExplorer_MouseDoubleClick"
+            x:Name="TwFileExplorer"
+            HorizontalAlignment="Left" Height="191" Margin="52,114,0,0" VerticalAlignment="Top" Width="305" DisplayMemberPath="Name">
+
+        </TreeView>
+        <TextBox x:Name="TbDirecotry" KeyDown="TbDirecotry_KeyDown" HorizontalAlignment="Left" Height="23" Margin="171,48,0,0" VerticalAlignment="Top" Width="186"/>
+
+    </Grid>
+</Window>
